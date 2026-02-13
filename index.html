@@ -1,102 +1,160 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Happy Valentine's Day ❤️</title>
-    <style>
-        body {
-            margin: 0;
-            font-family: 'Segoe UI', sans-serif;
-            background: linear-gradient(135deg, #ff4e8b, #ff9ecf);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            overflow: hidden;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Teju ❤️ Suchi</title>
 
-        .card {
-            background: white;
-            padding: 40px;
-            border-radius: 20px;
-            text-align: center;
-            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
-            max-width: 400px;
-            animation: fadeIn 2s ease-in-out;
-        }
+<style>
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #ff4e8b, #ff9ecf);
+    overflow-x: hidden;
+    text-align: center;
+}
 
-        h1 {
-            color: #ff4e8b;
-            margin-bottom: 10px;
-        }
+/* FLOATING HEARTS */
+.heart-bg {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -1;
+}
 
-        p {
-            font-size: 18px;
-            color: #555;
-        }
+.heart-bg span {
+    position: absolute;
+    bottom: -50px;
+    font-size: 20px;
+    animation: float 10s linear infinite;
+    color: rgba(255,255,255,0.8);
+}
 
-        .heart {
-            font-size: 50px;
-            animation: beat 1s infinite;
-            display: inline-block;
-            margin: 20px 0;
-        }
+@keyframes float {
+    0% { transform: translateY(0); opacity:1; }
+    100% { transform: translateY(-110vh); opacity:0; }
+}
 
-        button {
-            padding: 12px 25px;
-            border: none;
-            border-radius: 25px;
-            background: #ff4e8b;
-            color: white;
-            font-size: 16px;
-            cursor: pointer;
-            transition: 0.3s;
-        }
+/* CARD */
+.card {
+    background: white;
+    padding: 30px;
+    margin: 50px auto;
+    border-radius: 20px;
+    max-width: 400px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+}
 
-        button:hover {
-            background: #ff1e6d;
-            transform: scale(1.05);
-        }
+h1 { color: #ff4e8b; }
 
-        @keyframes beat {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.2); }
-            100% { transform: scale(1); }
-        }
+/* PURE CSS COUPLE */
+.couple {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    margin: 30px auto;
+}
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
+.person {
+    position: absolute;
+    bottom: 0;
+    width: 60px;
+    height: 120px;
+    background: #333;
+    border-radius: 30px;
+}
 
-        .hidden-message {
-            margin-top: 20px;
-            display: none;
-            font-weight: bold;
-            color: #ff4e8b;
-        }
-    </style>
+.person::before {
+    content: '';
+    position: absolute;
+    top: -40px;
+    left: 10px;
+    width: 40px;
+    height: 40px;
+    background: #333;
+    border-radius: 50%;
+}
+
+.left { left: 20px; animation: lean 2s infinite alternate; }
+.right { right: 20px; animation: lean 2s infinite alternate-reverse; }
+
+@keyframes lean {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(10deg); }
+}
+
+button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    background: #ff4e8b;
+    color: white;
+    cursor: pointer;
+}
+</style>
 </head>
+
 <body>
+
+<!-- Floating Hearts -->
+<div class="heart-bg">
+    <span style="left:10%; animation-duration:8s;">❤️</span>
+    <span style="left:30%; animation-duration:12s;">💖</span>
+    <span style="left:50%; animation-duration:10s;">💕</span>
+    <span style="left:70%; animation-duration:14s;">💘</span>
+    <span style="left:90%; animation-duration:9s;">❤️</span>
+</div>
 
 <div class="card">
     <h1>Happy Valentine's Day 💖</h1>
-    <div class="heart">❤️</div>
-    <p>To my dearest Suchi, 💕</p>
-    <p>From the day you came into my life, you made my world brighter every single day. ✨<br>Forever yours, <strong>Teju</strong> ❤️</p>
+    <p>To my dearest Suchi 💕</p>
+    <p>Forever yours, <strong>Teju</strong> ❤️</p>
 
-    <button onclick="showMessage()">Click for a Surprise</button>
-
-    <div class="hidden-message" id="surprise">
-        Suchi, I love you more than words can ever express! 💍💕<br>Will you be mine forever? — Love, Teju ❤️
+    <div class="couple">
+        <div class="person left"></div>
+        <div class="person right"></div>
     </div>
+
+    <button onclick="loveFlow()">
+        Click for Love
+    </button>
 </div>
 
 <script>
-    function showMessage() {
-        document.getElementById('surprise').style.display = 'block';
+function loveFlow() {
+
+    let first = confirm("Suchi ❤️\n\nI love you only...\nI want to marry you only 💍\n\nIf you love me too, click OK 💖");
+
+    if(first){
+        let second = confirm("Will you stay with me forever and be mine? 💕");
+
+        if(second){
+
+            // Play romantic instrumental music
+            let music = new Audio("https://www.bensound.com/bensound-music/bensound-romantic.mp3");
+            music.loop = true;
+            music.play();
+
+            document.body.innerHTML = `
+                <div style="
+                    height:100vh;
+                    display:flex;
+                    justify-content:center;
+                    align-items:center;
+                    background:linear-gradient(135deg,#ff4e8b,#ff9ecf);
+                    font-family:Segoe UI;
+                    color:white;
+                    text-align:center;
+                    flex-direction:column;
+                ">
+                    <h1 style="font-size:50px;">Teju Loves Suchi ❤️</h1>
+                    <h2>Forever & Always 💖</h2>
+                </div>
+            `;
+        }
     }
+}
 </script>
 
 </body>
