@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Valentine's Day ❤️</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #ff4e8b, #ff9ecf);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .card {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+            max-width: 400px;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        h1 {
+            color: #ff4e8b;
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-size: 18px;
+            color: #555;
+        }
+
+        .heart {
+            font-size: 50px;
+            animation: beat 1s infinite;
+            display: inline-block;
+            margin: 20px 0;
+        }
+
+        button {
+            padding: 12px 25px;
+            border: none;
+            border-radius: 25px;
+            background: #ff4e8b;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background: #ff1e6d;
+            transform: scale(1.05);
+        }
+
+        @keyframes beat {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+            100% { transform: scale(1); }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .hidden-message {
+            margin-top: 20px;
+            display: none;
+            font-weight: bold;
+            color: #ff4e8b;
+        }
+    </style>
+</head>
+<body>
+
+<div class="card">
+    <h1>Happy Valentine's Day 💖</h1>
+    <div class="heart">❤️</div>
+    <p>To my dearest Suchi, 💕</p>
+    <p>From the day you came into my life, you made my world brighter every single day. ✨<br>Forever yours, <strong>Teju</strong> ❤️</p>
+
+    <button onclick="showMessage()">Click for a Surprise</button>
+
+    <div class="hidden-message" id="surprise">
+        Suchi, I love you more than words can ever express! 💍💕<br>Will you be mine forever? — Love, Teju ❤️
+    </div>
+</div>
+
+<script>
+    function showMessage() {
+        document.getElementById('surprise').style.display = 'block';
+    }
+</script>
+
+</body>
+</html>
