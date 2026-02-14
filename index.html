@@ -48,42 +48,6 @@ body {
 
 h1 { color: #ff4e8b; }
 
-/* PURE CSS COUPLE */
-.couple {
-    position: relative;
-    width: 200px;
-    height: 200px;
-    margin: 30px auto;
-}
-
-.person {
-    position: absolute;
-    bottom: 0;
-    width: 60px;
-    height: 120px;
-    background: #333;
-    border-radius: 30px;
-}
-
-.person::before {
-    content: '';
-    position: absolute;
-    top: -40px;
-    left: 10px;
-    width: 40px;
-    height: 40px;
-    background: #333;
-    border-radius: 50%;
-}
-
-.left { left: 20px; animation: lean 2s infinite alternate; }
-.right { right: 20px; animation: lean 2s infinite alternate-reverse; }
-
-@keyframes lean {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(10deg); }
-}
-
 button {
     padding: 10px 20px;
     border: none;
@@ -111,11 +75,6 @@ button {
     <p>To my dearest Suchi 💕</p>
     <p>Forever yours, <strong>Teju</strong> ❤️</p>
 
-    <div class="couple">
-        <div class="person left"></div>
-        <div class="person right"></div>
-    </div>
-
     <button onclick="loveFlow()">
         Click for Love
     </button>
@@ -131,7 +90,6 @@ function loveFlow() {
 
         if(second){
 
-            // Play romantic instrumental music
             let music = new Audio("https://www.bensound.com/bensound-music/bensound-romantic.mp3");
             music.loop = true;
             music.play();
@@ -150,6 +108,12 @@ function loveFlow() {
                 ">
                     <h1 style="font-size:50px;">Teju Loves Suchi ❤️</h1>
                     <h2>Forever & Always 💖</h2>
+
+                    <img src="tejusuchi.png"
+                         style="width:300px;
+                                border-radius:20px;
+                                margin-top:25px;
+                                box-shadow:0 10px 25px rgba(0,0,0,0.3);">
                 </div>
             `;
         }
